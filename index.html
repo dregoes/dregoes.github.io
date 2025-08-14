@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Appointment Assistant</title>
+  <meta name="description" content="Book a mobile mechanic appointment with our AI assistant." />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; }
+    header { padding: 32px 20px; text-align:center; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    p { margin: 0; color: #555; }
+    main { max-width: 900px; margin: 24px auto; padding: 0 20px; }
+    .card { border: 1px solid #eee; border-radius: 10px; padding: 24px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book Your Appointment</h1>
+    <p>Chat with our assistant below to schedule.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <p>Open the chat bubble at the bottom-right to get started.</p>
+    </div>
+  </main>
+
+  <!-- Voiceflow Web Chat widget -->
+  <script type="text/javascript">
+    (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '658895965697db6ff5967de5' }, // your projectID
+          url: 'https://general-runtime.voiceflow.com',       // runtime URL
+          versionID: 'production',                             // use production build
+          allowDangerousHTML: true                             // needed if you render Calendly iframe inside chat
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      v.type = "text/javascript"; v.defer = true;
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
