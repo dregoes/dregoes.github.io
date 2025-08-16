@@ -8,38 +8,28 @@
         content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      max-width: 100%;
-    }
-    #vf-container {
-      width: 100%;
-      height: 100dvh;
-    }
-    input, textarea, select {
-      font-size: 16px;
-    }
+    html, body { margin:0; padding:0; height:100%; max-width:100%; }
+    #vf-container { width:100%; height:100dvh; }
+    input, textarea, select { font-size:16px; }
   </style>
 </head>
 <body>
   <div id="vf-container"></div>
-</body>
-</html>
-script type="text/javascript">
-  (function(d, t) {
+
+  <script>
+    (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '688595865970ddbff59c7de5' },
+          verify: { projectID: '66859566697addbff50e7de5' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
+          container: document.getElementById('vf-container')
         });
-      }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
+      };
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
