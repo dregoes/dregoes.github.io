@@ -1,63 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>My AI Agent</title>
-
-  <!-- Stops iPhone from zooming/rescaling -->
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SqueegeeGO — Car Wash AI</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      max-width: 100%;
+      min-height: 100%;
+      background: #0e1116;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
     }
-    /* Full-page chat that respects the iOS keyboard */
-    #vf-container {
-      width: 100%;
-      height: 100svh;     /* iOS-safe viewport height */
-      min-height: 100dvh; /* modern fallback */
+    main {
+      max-width: 720px;
+      margin: 6rem auto;
+      padding: 0 1rem;
+      text-align: center;
     }
-    /* Prevent iOS input auto-zoom */
-    input, textarea, select { font-size: 16px; }
+    h1 {
+      margin: 0 0 .5rem 0;
+    }
+    p {
+      opacity: .9;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
- <div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER">
-    <!-- Here is where CONVOCORE renders the widget. -->
-    <!-- Set render to 'full-width' then adjust the width and height to 500px (for example) to render the chatbot itself without the popup. -->
-</div>
+  <main>
+    <h1>Welcome to SqueegeeGO</h1>
+    <p>Book your next car wash in seconds with our AI assistant below.</p>
+  </main>
 
-<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
-<script defer>
+  <!-- VOICEGLOW WIDGET -->
+  <div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER"></div>
+  <script defer>
     (function() {
-        window.VG_CONFIG = {
-            ID: "t9CKcrU98RTv4NqG", // YOUR AGENT ID
-            region: 'na', // YOUR ACCOUNT REGION 
-            render: 'bottom-right', // Widget position
-            // modalMode: true, // Set this to 'true' to open the widget in modal mode
-            stylesheets: [
-                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
-            ],
-            // THIS IS SUPPOSED TO BE CHANGED OR REMOVED.
-            // user: {
-            //     name: 'John Doe', // User's name
-            //     email: 'johndoe@gmail.com', // User's email
-            //     phone: '+1234567890', // User's phone number
-            // }
-            // Optional user data -- end
-            // **
-            // userID: 'USER_ID', // If you want to use your own user_id
-            // autostart: true, // Whether to autostart the chatbot with the proactive message
-        }
-        var VG_SCRIPT = document.createElement("script");
-        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
-        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
-        document.body.appendChild(VG_SCRIPT);
+      window.VG_CONFIG = {
+        ID: "t9CKcrU98RTv4NqG", // YOUR AGENT ID
+        region: 'na',          // YOUR ACCOUNT REGION
+        render: 'bottom-right',// Widget position
+        stylesheets: [
+          "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
+        ]
+      };
+      var VG_SCRIPT = document.createElement("script");
+      VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+      VG_SCRIPT.defer = true;
+      document.body.appendChild(VG_SCRIPT);
     })()
-</script>
+  </script>
 </body>
 </html>
