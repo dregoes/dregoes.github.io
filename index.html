@@ -1,17 +1,50 @@
-<script>
-(function (d, t) {
-  var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-  v.defer = true;
-  v.onload = function () {
-    const chat = window.voiceflow.chat.load({
-      verify: { projectID: '66859566697addbff50e7de5' },
-      url: 'https://general-runtime.voiceflow.com',
-      versionID: 'development',   // use 'production' after you Publish in Voiceflow
-      user: { id: String(Date.now()) }
-    });
-    if (chat && typeof chat.open === 'function') chat.open();
-  };
-  v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
-  s.parentNode.insertBefore(v, s);
-})(document, 'script');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My AI Agent</title>
+
+  <!-- Stops iPhone from zooming/rescaling -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      max-width: 100%;
+    }
+    /* Full-page chat that respects the iOS keyboard */
+    #vf-container {
+      width: 100%;
+      height: 100svh;     /* iOS-safe viewport height */
+      min-height: 100dvh; /* modern fallback */
+    }
+    /* Prevent iOS input auto-zoom */
+    input, textarea, select { font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div id="vf-container"></div>
+
+  <script>
+    (function (d, t) {
+      const v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.defer = true;
+      v.onload = function () {
+        const chat = window.voiceflow.chat.load({
+          verify: { projectID: '66859566697addbff50e7de5' },   // <- your project ID
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'development',                              // use 'production' after you Publish in VF
+          container: document.getElementById('vf-container'),
+          user: { id: String(Date.now()) }                       // fresh session => greeting runs
+        });
+        if (chat && typeof chat.open === 'function') chat.open();
+      };
+      v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+</body>
+</html>
