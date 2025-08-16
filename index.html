@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My AI Agent</title>
-
-  <!-- Mobile viewport fix -->
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
-
-  <style>
+ <style>
     html, body {
       margin: 0;
       padding: 0;
@@ -17,10 +7,10 @@
     }
     #vf-container {
       width: 100%;
-      height: 100dvh; /* dynamic viewport so mobile keyboard doesn’t break layout */
+      height: 100dvh; 
     }
     input, textarea, select {
-      font-size: 16px; /* prevents iOS Safari zoom */
+      font-size: 16px; 
     }
   </style>
 </head>
@@ -32,11 +22,11 @@
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
         window.voiceflow.chat.load({
-          verify: { projectID: '66859566697addbff50e7de5' }, // ← replace if needed
+          verify: { projectID: '66859566697addbff50e7de5' },
           url: 'https://general-runtime.voiceflow.com',
           versionID: 'production',
           container: document.getElementById('vf-container'),
-          user: { id: String(Date.now()) } // ensures fresh greeting each load
+          user: { id: String(Date.now()) } 
         });
       };
       v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
