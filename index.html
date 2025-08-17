@@ -5,15 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SqueegeeGO — Car Wash AI</title>
   <style>
-    html, body { margin:0; padding:0; height:100%; background:#0e1116; color:#fff; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif; overflow:hidden; }
-    main { max-width:720px; margin:6rem auto; padding:0 1rem; text-align:center; position:relative; z-index:1; }
-    #bgvid { position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:-1; pointer-events:none; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #0e1116;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      overflow: hidden; /* stops scrollbars */
+    }
+    #bgvid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    main {
+      max-width: 720px;
+      margin: 6rem auto;
+      padding: 0 1rem;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
   </style>
 </head>
 <body>
-  <video id="bgvid" autoplay muted loop playsinline preload="metadata" poster="">
-    <source src="https://dregoes.github.io/bubbles_loop.webm?v=4" type="video/webm" />
-    <source src="https://dregoes.github.io/bubbles_loop.mp4?v=4"  type="video/mp4" />
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline id="bgvid">
+    <source src="Bubbles.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
 
   <main>
@@ -21,18 +45,21 @@
     <p>Book your next car wash in seconds with our AI assistant below.</p>
   </main>
 
-  <div id="VG_OVERLAY_CONTAINER" style="width:0;height:0;"></div>
+  <!-- Voiceglow Widget -->
+  <div id="VG_OVERLAY_CONTAINER"></div>
   <script>
-    window.VG_CONFIG = {
-      id: "t9CKcrU98RTv4NqG",
-      region: "na",
-      render: "bottom-right",
-      modalMode: true,
-      autostart: true,
-      allowDangerousHTML: true,
-      stylesheet: ["https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"]
-    };
+    (function() {
+      window.VG_CONFIG = {
+        ID: "t9CKcrU98RTv4NqG", // your Voiceglow agent ID
+        region: 'na',
+        render: 'bottom-right',
+        stylesheets: ["https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"],
+      };
+      var VG_SCRIPT = document.createElement("script");
+      VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+      VG_SCRIPT.defer = true;
+      document.body.appendChild(VG_SCRIPT);
+    })()
   </script>
-  <script defer src="https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js"></script>
 </body>
 </html>
