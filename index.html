@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SqueegeeGO — Car Wash AI</title>
   <style>
-    html, body { margin:0; padding:0; min-height:100%; background:#0e1116; color:#fff; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif; overflow:hidden; }
+    html, body { margin:0; padding:0; height:100%; background:#0e1116; color:#fff; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif; overflow:hidden; }
     main { max-width:720px; margin:6rem auto; padding:0 1rem; text-align:center; position:relative; z-index:1; }
-    #bgvid { position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:-1; }
+    #bgvid { position:fixed; top:0; left:0; width:100vw; height:100vh; object-fit:cover; z-index:-1; pointer-events:none; }
   </style>
 </head>
 <body>
-  <video id="bgvid" autoplay muted loop playsinline preload="metadata">
-    <source src="./bubbles_loop.webm?v=3" type="video/webm" />
-    <source src="./bubbles_loop.mp4?v=3" type="video/mp4" />
+  <video id="bgvid" autoplay muted loop playsinline preload="metadata" poster="">
+    <source src="https://dregoes.github.io/bubbles_loop.webm?v=4" type="video/webm" />
+    <source src="https://dregoes.github.io/bubbles_loop.mp4?v=4"  type="video/mp4" />
   </video>
 
   <main>
@@ -21,7 +21,7 @@
     <p>Book your next car wash in seconds with our AI assistant below.</p>
   </main>
 
-  <div id="VG_OVERLAY_CONTAINER"></div>
+  <div id="VG_OVERLAY_CONTAINER" style="width:0;height:0;"></div>
   <script>
     window.VG_CONFIG = {
       id: "t9CKcrU98RTv4NqG",
