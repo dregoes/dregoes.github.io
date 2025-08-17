@@ -9,48 +9,65 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
-      background: #0e1116;
+      background: #0e1116; /* fallback while video loads */
       color: #fff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      overflow: hidden; /* keep page from scrolling */
     }
     main {
       max-width: 720px;
       margin: 6rem auto;
       padding: 0 1rem;
       text-align: center;
+      position: relative;
+      z-index: 1; /* above the background video */
     }
-    h1 {
-      margin: 0 0 .5rem 0;
-    }
-    p {
-      opacity: .9;
-      line-height: 1.5;
+    #bgvid {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -1; /* behind everything */
     }
   </style>
 </head>
 <body>
+
+  <!-- Background Video (put your files in the repo root or adjust paths) -->
+  <video id="bgvid" autoplay muted loop playsinline preload="metadata" poster="">
+    <source src="./bubbles_loop.webm?v=2" type="video/webm" />
+    <source src="./bubbles_loop.mp4?v=2"  type="video/mp4" />
+    <!-- If neither plays, the solid background shows -->
+  </video>
+
   <main>
     <h1>Welcome to SqueegeeGO</h1>
     <p>Book your next car wash in seconds with our AI assistant below.</p>
   </main>
 
   <!-- VOICEGLOW WIDGET -->
-  <div style="width: 0; height: 0;" id="VG_OVERLAY_CONTAINER"></div>
-  <script defer>
-    (function() {
+  <div style="width:0; height:0;" id="VG_OVERLAY_CONTAINER"></div>
+  <script>
+    (function () {
       window.VG_CONFIG = {
-        ID: "t9CKcrU98RTv4NqG", // YOUR AGENT ID
-        region: 'na',          // YOUR ACCOUNT REGION
-        render: 'bottom-right',// Widget position
-        stylesheets: [
-          "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
-        ]
+        id: "t9CKcrU98RTv4NqG",     // ✅ your agent ID (use "id", not "ID")
+        region: "na",              // your account region
+        render: "bottom-right",    // widget position
+        modalMode: true,           // optional – open in modal
+        autostart: true,           // optional – open automatically
+
+        allowDangerousHTML: true,  // ✅ lets HTML render in messages if you ever need it
+
+        // VoiceGlow stylesheet (keep one of these keys; library reads "stylesheet")
+        stylesheet: ["https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"]
+        // stylesheets: ["https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"] // (safe to remove)
       };
-      var VG_SCRIPT = document.createElement("script");
-      VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
-      VG_SCRIPT.defer = true;
-      document.body.appendChild(VG_SCRIPT);
-    })()
+
+      var s = document.createElement("script");
+      s.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+      s.defer = true;
+      document.body.appendChild(s);
+    })();
   </script>
 </body>
 </html>
