@@ -1,34 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VoiceGlow Chatbot</title>
-</head>
-<body>
-  <div style="width: 500px; height: 500px;" id="VG_OVERLAY_CONTAINER">
-    <!-- Here is where CONVOCORE renders the widget. -->
-    <!-- Set width, height for 500px as an example after changing render to 'full-width' -->
-  </div>
+<div style="width: 500px; height: 500px;" id="VG_OVERLAY_CONTAINER">
+<!-- Here is where CONVOCORE renders the widget. -->
+<!-- Set width, height for 500px as an example after changing render to 'full-width' -->
+</div>
 
-  <!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
-  <script defer>
+<!-- Remove 'defer' if you want widget to load faster (Will affect website loading) -->
+<script defer>
     (function() {
-      window.VG_CONFIG = {
-        ID: "3jfkbpvhl7hszrt7",
-        region: 'na', // 'eu' or 'na' corresponding to Europe and North America
-        render: 'full-width', // popup or full-width
-        // modalMode: true, // Set this to "true" to open the widget in modal mode
-        stylesheets: [
-          "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
-        ]
-      }
-
-      var VG_SCRIPT = document.createElement("script");
-      VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
-      VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
-      document.body.appendChild(VG_SCRIPT);
+        window.VG_CONFIG = {
+            ID: "3jfkbpvhl7hszrt7",
+            region: 'na', // 'eu' or 'na'corresponding to Europe and North America
+            render: 'full-width', // popup or full-width
+            // modalMode: true, // Set this to 'true' to open the widget in modal mode
+            stylesheets: [
+                // Base CONVOCORE CSS
+                "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+                // Add your custom css stylesheets, Can also add relative URL ('/public/your-file.css)
+            ],
+            // (SHOULD BE REMOVED OR CHANGED, PROVIDED AS AN EXAMPLE TO USE)
+            // user: {
+            //     name: 'John Doe', // User's name
+            //     email: 'johndoe@gmail.com', // User's email
+            //     phone: '+1234567890', // User's phone number
+            // }
+            //
+            // **
+            // userID: 'USER_ID', // If you want to use your own user_id
+            // autostart: true, // Whether to autostart the chatbot with the proactive message
+        }
+        var VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true; // Remove 'defer' if you want widget to load faster (Will affect website loading)
+        document.body.appendChild(VG_SCRIPT);
     })()
-  </script>
-</body>
-</html>
+</script>
