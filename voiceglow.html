@@ -1,22 +1,29 @@
-‹meta
-charset="UTF-8">
-<meta
-name="viewport" content="width=device-width, initial-scale=1.0">
-‹title>VoiceGlow Chatbot</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoiceGlow Chatbot</title>
 </head>
 <body>
-‹div style="width: 100%; height: 100vh;" id="VG_OVERLAY_CONTAINER"></div>
-< script defer›
-(function() ‹
-window. VG_CONFIG = {
-ID: "3jfkbpvhl7hszrt7", region: 'na', render: 'full-width', stylesheets: [
-"https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
-var VG_SCRIPT = document.createElement ("script");
-VG_SCRIPT, sIc = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
-VG_SCRIPT .defer = true;
-document. body appendChild (VG_SCRIPT) ;
-1)00
-</script>
-</body>
+  <div style="width: 100%; height: 100vh;" id="VG_OVERLAY_CONTAINER"></div>
 
+  <script defer>
+    (function() {
+      window.VG_CONFIG = {
+        ID: "3jfkbpvhl7hszrt7",
+        region: 'na',
+        render: 'full-width',
+        stylesheets: [
+          "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css"
+        ]
+      }
+
+      var VG_SCRIPT = document.createElement("script");
+      VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+      VG_SCRIPT.defer = true;
+      document.body.appendChild(VG_SCRIPT);
+    })()
+  </script>
+</body>
 </html>
